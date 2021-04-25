@@ -1,18 +1,22 @@
 pragma solidity 0.5.3;
 
-import "./Moloch.sol";
+import "./DAOCoop.sol";
 
-contract MolochSummoner {
+contract DAOCoopSummoner {
 
-    Moloch private M;
+    DAOCoop private M;
 
-    address[] public Molochs;
+    address[] public DAOCoops;
 
     event Summoned(address indexed M, address indexed _summoner);
 
-    function summonMoloch(
+    function summonDAOCoop(
         address _summoner,
         address[] memory _approvedTokens,
+        bytes memory _actaUri, // Acta
+        bytes memory _bylawUri, // Estatuto
+        bool _hasKyb, // Certificacion de entidad financiera
+        bool _hasIpacoopCertify, // Estudio de viabilidad economica social      
         uint256 _periodDuration,
         uint256 _votingPeriodLength,
         uint256 _gracePeriodLength,
@@ -20,9 +24,13 @@ contract MolochSummoner {
         uint256 _dilutionBound,
         uint256 _processingReward) public {
 
-        M = new Moloch(
+        M = new DAOCoop(
             _summoner,
             _approvedTokens,
+            _actaUri,
+            _bylawUri,
+            _hasKyb,
+            _hasIpacoopCertify,
             _periodDuration,
             _votingPeriodLength,
             _gracePeriodLength,
@@ -30,13 +38,13 @@ contract MolochSummoner {
             _dilutionBound,
             _processingReward);
 
-        Molochs.push(address(M));
+        DAOCoops.push(address(M));
 
         emit Summoned(address(M), _summoner);
 
     }
 
-    function getMolochCount() public view returns (uint256 MolochCount) {
-        return Molochs.length;
+    function getDAOCoopCount() public view returns (uint256 DAOCoopCount) {
+        return DAOCoops.length;
     }
 }

@@ -1,0 +1,2864 @@
+{
+  "contractName": "Submitter",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "daoCoop",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "molochAddress",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "proposalId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Submit",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "applicant",
+          "type": "address"
+        },
+        {
+          "name": "sharesRequested",
+          "type": "uint256"
+        },
+        {
+          "name": "lootRequested",
+          "type": "uint256"
+        },
+        {
+          "name": "tributeOffered",
+          "type": "uint256"
+        },
+        {
+          "name": "tributeToken",
+          "type": "address"
+        },
+        {
+          "name": "paymentRequested",
+          "type": "uint256"
+        },
+        {
+          "name": "paymentToken",
+          "type": "address"
+        },
+        {
+          "name": "details",
+          "type": "string"
+        }
+      ],
+      "name": "submitProposal",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "tokenToWhitelist",
+          "type": "address"
+        },
+        {
+          "name": "details",
+          "type": "string"
+        }
+      ],
+      "name": "submitWhitelistProposal",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "memberToKick",
+          "type": "address"
+        },
+        {
+          "name": "details",
+          "type": "string"
+        }
+      ],
+      "name": "submitGuildKickProposal",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.3+commit.10d17f24\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"memberToKick\",\"type\":\"address\"},{\"name\":\"details\",\"type\":\"string\"}],\"name\":\"submitGuildKickProposal\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"daoCoop\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"applicant\",\"type\":\"address\"},{\"name\":\"sharesRequested\",\"type\":\"uint256\"},{\"name\":\"lootRequested\",\"type\":\"uint256\"},{\"name\":\"tributeOffered\",\"type\":\"uint256\"},{\"name\":\"tributeToken\",\"type\":\"address\"},{\"name\":\"paymentRequested\",\"type\":\"uint256\"},{\"name\":\"paymentToken\",\"type\":\"address\"},{\"name\":\"details\",\"type\":\"string\"}],\"name\":\"submitProposal\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"tokenToWhitelist\",\"type\":\"address\"},{\"name\":\"details\",\"type\":\"string\"}],\"name\":\"submitWhitelistProposal\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"molochAddress\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"proposalId\",\"type\":\"uint256\"}],\"name\":\"Submit\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/rogelio/Code/xdv/PanamaDAO/contracts/test-helpers/Submitter.sol\":\"Submitter\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/rogelio/Code/xdv/PanamaDAO/contracts/DAOCoop.sol\":{\"keccak256\":\"0x7b20d5a699fab38dd9b865669d96cfa467a665a8289c314eb1fa94cc8700edab\",\"urls\":[\"bzzr://6934431315003a40cae0ec5f0f956f2d7bce2b0b47093533bfe4b8b1810cfe28\"]},\"/home/rogelio/Code/xdv/PanamaDAO/contracts/IERC20.sol\":{\"keccak256\":\"0x7b907219f231d636a3340b490f6986ca107235b6a0f57d3e21e884cef57711ce\",\"urls\":[\"bzzr://7835dc91039e37652f6064ba3913660d56c811bf65eebf1d7150b278d557ba34\"]},\"/home/rogelio/Code/xdv/PanamaDAO/contracts/ReentrancyGuard.sol\":{\"keccak256\":\"0xb7a6d8bc2b5dbb581c9fb8c1adb41464ed2e72bde31898cbf984ea1abf5b6b29\",\"urls\":[\"bzzr://c08b99660fb7f74df5b131dcc9f33d4bf6a7fc44aa7d0432fcf4bde554580065\"]},\"/home/rogelio/Code/xdv/PanamaDAO/contracts/SafeMath.sol\":{\"keccak256\":\"0xcd7cf8e2eba8fb53c3d88274c02cdd041c682f8a5f96ad7441724fb017830291\",\"urls\":[\"bzzr://c1b3addd8d8b38ce7fab68056e040b142461b41769b1453bde5126dd0543a75e\"]},\"/home/rogelio/Code/xdv/PanamaDAO/contracts/test-helpers/Submitter.sol\":{\"keccak256\":\"0x43fde1de94cbad9e83cbd4f74d105d8f413dcefe94ec6d812c9b55842b139de7\",\"urls\":[\"bzzr://449e5eaf2bc5a84ae1e88c4a2c2e4397e9174a8c5569da1b2e236814ad6de6d6\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516020806106ee8339810180604052602081101561003057600080fd5b505160008054600160a060020a03909216600160a060020a031990921691909117905561068c806100626000396000f3fe608060405234801561001057600080fd5b5060043610610068577c01000000000000000000000000000000000000000000000000000000006000350463115b2d18811461006d5780633f92846d14610125578063590f940b14610149578063feb7ea1d14610229575b600080fd5b6101236004803603604081101561008357600080fd5b600160a060020a0382351691908101906040810160208201356401000000008111156100ae57600080fd5b8201836020820111156100c057600080fd5b803590602001918460018302840111640100000000831117156100e257600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506102df945050505050565b005b61012d610418565b60408051600160a060020a039092168252519081900360200190f35b610123600480360361010081101561016057600080fd5b600160a060020a038235811692602081013592604082013592606083013592608081013582169260a08201359260c0830135169190810190610100810160e08201356401000000008111156101b457600080fd5b8201836020820111156101c657600080fd5b803590602001918460018302840111640100000000831117156101e857600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929550610427945050505050565b6101236004803603604081101561023f57600080fd5b600160a060020a03823516919081019060408101602082013564010000000081111561026a57600080fd5b82018360208201111561027c57600080fd5b8035906020019184600183028401116401000000008311171561029e57600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506105dd945050505050565b60008054604080517f115b2d18000000000000000000000000000000000000000000000000000000008152600160a060020a038681166004830190815260248301938452865160448401528651919094169363115b2d18938893889360649091019060208501908083838c5b8381101561036357818101518382015260200161034b565b50505050905090810190601f1680156103905780820380516001836020036101000a031916815260200191505b509350505050602060405180830381600087803b1580156103b057600080fd5b505af11580156103c4573d6000803e3d6000fd5b505050506040513d60208110156103da57600080fd5b50516040805182815290519192507f08324b3d745b914e3abd4ffbfead91e3b78391a98c173202129215ab933adfbe919081900360200190a1505050565b600054600160a060020a031681565b60008060009054906101000a9004600160a060020a0316600160a060020a031663590f940b8a8a8a8a8a8a8a8a6040518963ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018089600160a060020a0316600160a060020a0316815260200188815260200187815260200186815260200185600160a060020a0316600160a060020a0316815260200184815260200183600160a060020a0316600160a060020a0316815260200180602001828103825283818151815260200191508051906020019080838360005b8381101561051c578181015183820152602001610504565b50505050905090810190601f1680156105495780820380516001836020036101000a031916815260200191505b509950505050505050505050602060405180830381600087803b15801561056f57600080fd5b505af1158015610583573d6000803e3d6000fd5b505050506040513d602081101561059957600080fd5b50516040805182815290519192507f08324b3d745b914e3abd4ffbfead91e3b78391a98c173202129215ab933adfbe919081900360200190a1505050505050505050565b60008054604080517ffeb7ea1d000000000000000000000000000000000000000000000000000000008152600160a060020a038681166004830190815260248301938452865160448401528651919094169363feb7ea1d938893889360649091019060208501908083838c8381101561036357818101518382015260200161034b56fea165627a7a7230582043f51b578ec5adc43e2844aa5b4afcfa20735db5283b1e1a49d4f3452bbda6a30029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b5060043610610068577c01000000000000000000000000000000000000000000000000000000006000350463115b2d18811461006d5780633f92846d14610125578063590f940b14610149578063feb7ea1d14610229575b600080fd5b6101236004803603604081101561008357600080fd5b600160a060020a0382351691908101906040810160208201356401000000008111156100ae57600080fd5b8201836020820111156100c057600080fd5b803590602001918460018302840111640100000000831117156100e257600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506102df945050505050565b005b61012d610418565b60408051600160a060020a039092168252519081900360200190f35b610123600480360361010081101561016057600080fd5b600160a060020a038235811692602081013592604082013592606083013592608081013582169260a08201359260c0830135169190810190610100810160e08201356401000000008111156101b457600080fd5b8201836020820111156101c657600080fd5b803590602001918460018302840111640100000000831117156101e857600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929550610427945050505050565b6101236004803603604081101561023f57600080fd5b600160a060020a03823516919081019060408101602082013564010000000081111561026a57600080fd5b82018360208201111561027c57600080fd5b8035906020019184600183028401116401000000008311171561029e57600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506105dd945050505050565b60008054604080517f115b2d18000000000000000000000000000000000000000000000000000000008152600160a060020a038681166004830190815260248301938452865160448401528651919094169363115b2d18938893889360649091019060208501908083838c5b8381101561036357818101518382015260200161034b565b50505050905090810190601f1680156103905780820380516001836020036101000a031916815260200191505b509350505050602060405180830381600087803b1580156103b057600080fd5b505af11580156103c4573d6000803e3d6000fd5b505050506040513d60208110156103da57600080fd5b50516040805182815290519192507f08324b3d745b914e3abd4ffbfead91e3b78391a98c173202129215ab933adfbe919081900360200190a1505050565b600054600160a060020a031681565b60008060009054906101000a9004600160a060020a0316600160a060020a031663590f940b8a8a8a8a8a8a8a8a6040518963ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018089600160a060020a0316600160a060020a0316815260200188815260200187815260200186815260200185600160a060020a0316600160a060020a0316815260200184815260200183600160a060020a0316600160a060020a0316815260200180602001828103825283818151815260200191508051906020019080838360005b8381101561051c578181015183820152602001610504565b50505050905090810190601f1680156105495780820380516001836020036101000a031916815260200191505b509950505050505050505050602060405180830381600087803b15801561056f57600080fd5b505af1158015610583573d6000803e3d6000fd5b505050506040513d602081101561059957600080fd5b50516040805182815290519192507f08324b3d745b914e3abd4ffbfead91e3b78391a98c173202129215ab933adfbe919081900360200190a1505050505050505050565b60008054604080517ffeb7ea1d000000000000000000000000000000000000000000000000000000008152600160a060020a038681166004830190815260248301938452865160448401528651919094169363feb7ea1d938893889360649091019060208501908083838c8381101561036357818101518382015260200161034b56fea165627a7a7230582043f51b578ec5adc43e2844aa5b4afcfa20735db5283b1e1a49d4f3452bbda6a30029",
+  "sourceMap": "109:1190:7:-;;;227:85;8:9:-1;5:2;;;30:1;27;20:12;5:2;227:85:7;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;227:85:7;275:7;:32;;-1:-1:-1;;;;;275:32:7;;;-1:-1:-1;;;;;;275:32:7;;;;;;;;;109:1190;;;;;;",
+  "deployedSourceMap": "109:1190:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;109:1190:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1066:231;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;;;;;1066:231:7;;;;;;;;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;1066:231:7;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;1066:231:7;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;1066:231:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;1066:231:7;;-1:-1:-1;1066:231:7;;-1:-1:-1;;;;;1066:231:7:i;:::-;;170:22;;;:::i;:::-;;;;-1:-1:-1;;;;;170:22:7;;;;;;;;;;;;;;316:503;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;-1:-1;;;;;316:503:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;316:503:7;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;316:503:7;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;316:503:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;316:503:7;;-1:-1:-1;316:503:7;;-1:-1:-1;;;;;316:503:7:i;823:239::-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;;;;;823:239:7;;;;;;;;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;823:239:7;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;823:239:7;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;823:239:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;823:239:7;;-1:-1:-1;823:239:7;;-1:-1:-1;;;;;823:239:7:i;1066:231::-;1169:18;1190:7;;:72;;;;;;-1:-1:-1;;;;;1190:72:7;;;;;;;;;;;;;;;;;;;;;;;:7;;;;;:31;;1229:12;;1249:7;;1190:72;;;;;;;;;;;;1169:18;8:100:-1;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;1190:72:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1190:72:7;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1190:72:7;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1190:72:7;1274:18;;;;;;;;1190:72;;-1:-1:-1;1274:18:7;;;;;;1190:72;1274:18;;;1066:231;;;:::o;170:22::-;;;-1:-1:-1;;;;;170:22:7;;:::o;316:503::-;573:18;594:7;;;;;;;;;-1:-1:-1;;;;;594:7:7;-1:-1:-1;;;;;594:22:7;;624:9;641:15;664:13;685:14;707:12;727:16;751:12;771:7;594:190;;;;;;;;;;;;;-1:-1:-1;;;;;594:190:7;-1:-1:-1;;;;;594:190:7;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;594:190:7;-1:-1:-1;;;;;594:190:7;;;;;;;;;;;-1:-1:-1;;;;;594:190:7;-1:-1:-1;;;;;594:190:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;594:190:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;594:190:7;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;594:190:7;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;594:190:7;796:18;;;;;;;;594:190;;-1:-1:-1;796:18:7;;;;;;594:190;796:18;;;316:503;;;;;;;;;:::o;823:239::-;930:18;951:7;;:76;;;;;;-1:-1:-1;;;;;951:76:7;;;;;;;;;;;;;;;;;;;;;;;:7;;;;;:31;;990:16;;1014:7;;951:76;;;;;;;;;;;;930:18;33:3:-1;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;",
+  "source": "// helper for testing daoCoop.submitProposal return value\n\npragma solidity 0.5.3;\n\nimport \"../DAOCoop.sol\";\n\ncontract Submitter {\n\n  event Submit(uint256 proposalId);\n\n  DAOCoop public daoCoop; // daoCoop contract reference\n\n  constructor(address molochAddress) public {\n    daoCoop = DAOCoop(molochAddress);\n  }\n\n  function submitProposal(\n    address applicant,\n    uint256 sharesRequested,\n    uint256 lootRequested,\n    uint256 tributeOffered,\n    address tributeToken,\n    uint256 paymentRequested,\n    address paymentToken,\n    string memory details\n  ) public {\n    uint256 proposalId = daoCoop.submitProposal(\n      applicant,\n      sharesRequested,\n      lootRequested,\n      tributeOffered,\n      tributeToken,\n      paymentRequested,\n      paymentToken,\n      details\n    );\n\n    emit Submit(proposalId);\n  }\n\n  function submitWhitelistProposal(\n    address tokenToWhitelist,\n    string memory details\n  ) public {\n    uint256 proposalId = daoCoop.submitWhitelistProposal(\n      tokenToWhitelist,\n      details\n    );\n\n    emit Submit(proposalId);\n  }\n\n  function submitGuildKickProposal(\n    address memberToKick,\n    string memory details\n  ) public {\n    uint256 proposalId = daoCoop.submitGuildKickProposal(\n      memberToKick,\n      details\n    );\n\n    emit Submit(proposalId);\n  }\n}\n",
+  "sourcePath": "/home/rogelio/Code/xdv/PanamaDAO/contracts/test-helpers/Submitter.sol",
+  "ast": {
+    "absolutePath": "/home/rogelio/Code/xdv/PanamaDAO/contracts/test-helpers/Submitter.sol",
+    "exportedSymbols": {
+      "Submitter": [
+        3700
+      ]
+    },
+    "id": 3701,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3602,
+        "literals": [
+          "solidity",
+          "0.5",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "59:22:7"
+      },
+      {
+        "absolutePath": "/home/rogelio/Code/xdv/PanamaDAO/contracts/DAOCoop.sol",
+        "file": "../DAOCoop.sol",
+        "id": 3603,
+        "nodeType": "ImportDirective",
+        "scope": 3701,
+        "sourceUnit": 2907,
+        "src": "83:24:7",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 3700,
+        "linearizedBaseContracts": [
+          3700
+        ],
+        "name": "Submitter",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 3607,
+            "name": "Submit",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3606,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3605,
+                  "indexed": false,
+                  "name": "proposalId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3607,
+                  "src": "146:18:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3604,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "146:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "145:20:7"
+            },
+            "src": "133:33:7"
+          },
+          {
+            "constant": false,
+            "id": 3609,
+            "name": "daoCoop",
+            "nodeType": "VariableDeclaration",
+            "scope": 3700,
+            "src": "170:22:7",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_DAOCoop_$2906",
+              "typeString": "contract DAOCoop"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 3608,
+              "name": "DAOCoop",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2906,
+              "src": "170:7:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DAOCoop_$2906",
+                "typeString": "contract DAOCoop"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3620,
+              "nodeType": "Block",
+              "src": "269:43:7",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 3618,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 3614,
+                      "name": "daoCoop",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3609,
+                      "src": "275:7:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_DAOCoop_$2906",
+                        "typeString": "contract DAOCoop"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 3616,
+                          "name": "molochAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3611,
+                          "src": "293:13:7",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 3615,
+                        "name": "DAOCoop",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2906,
+                        "src": "285:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_DAOCoop_$2906_$",
+                          "typeString": "type(contract DAOCoop)"
+                        }
+                      },
+                      "id": 3617,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "285:22:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_DAOCoop_$2906",
+                        "typeString": "contract DAOCoop"
+                      }
+                    },
+                    "src": "275:32:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_DAOCoop_$2906",
+                      "typeString": "contract DAOCoop"
+                    }
+                  },
+                  "id": 3619,
+                  "nodeType": "ExpressionStatement",
+                  "src": "275:32:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3621,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3612,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3611,
+                  "name": "molochAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3621,
+                  "src": "239:21:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3610,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "239:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "238:23:7"
+            },
+            "returnParameters": {
+              "id": 3613,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "269:0:7"
+            },
+            "scope": 3700,
+            "src": "227:85:7",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3658,
+              "nodeType": "Block",
+              "src": "567:252:7",
+              "statements": [
+                {
+                  "assignments": [
+                    3641
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3641,
+                      "name": "proposalId",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 3658,
+                      "src": "573:18:7",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 3640,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "573:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3653,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3644,
+                        "name": "applicant",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3623,
+                        "src": "624:9:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3645,
+                        "name": "sharesRequested",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3625,
+                        "src": "641:15:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3646,
+                        "name": "lootRequested",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3627,
+                        "src": "664:13:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3647,
+                        "name": "tributeOffered",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3629,
+                        "src": "685:14:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3648,
+                        "name": "tributeToken",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3631,
+                        "src": "707:12:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3649,
+                        "name": "paymentRequested",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3633,
+                        "src": "727:16:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3650,
+                        "name": "paymentToken",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3635,
+                        "src": "751:12:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3651,
+                        "name": "details",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3637,
+                        "src": "771:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 3642,
+                        "name": "daoCoop",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3609,
+                        "src": "594:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_DAOCoop_$2906",
+                          "typeString": "contract DAOCoop"
+                        }
+                      },
+                      "id": 3643,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "submitProposal",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 761,
+                      "src": "594:22:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$_t_address_$_t_uint256_$_t_address_$_t_string_memory_ptr_$returns$_t_uint256_$",
+                        "typeString": "function (address,uint256,uint256,uint256,address,uint256,address,string memory) external returns (uint256)"
+                      }
+                    },
+                    "id": 3652,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "594:190:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "573:211:7"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3655,
+                        "name": "proposalId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3641,
+                        "src": "803:10:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 3654,
+                      "name": "Submit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3607,
+                      "src": "796:6:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 3656,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "796:18:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3657,
+                  "nodeType": "EmitStatement",
+                  "src": "791:23:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3659,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "submitProposal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3638,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3623,
+                  "name": "applicant",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3659,
+                  "src": "345:17:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3622,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "345:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3625,
+                  "name": "sharesRequested",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3659,
+                  "src": "368:23:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3624,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "368:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3627,
+                  "name": "lootRequested",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3659,
+                  "src": "397:21:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3626,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "397:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3629,
+                  "name": "tributeOffered",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3659,
+                  "src": "424:22:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3628,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "424:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3631,
+                  "name": "tributeToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3659,
+                  "src": "452:20:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3630,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "452:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3633,
+                  "name": "paymentRequested",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3659,
+                  "src": "478:24:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3632,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "478:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3635,
+                  "name": "paymentToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3659,
+                  "src": "508:20:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3634,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "508:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3637,
+                  "name": "details",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3659,
+                  "src": "534:21:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3636,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "534:6:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "339:220:7"
+            },
+            "returnParameters": {
+              "id": 3639,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "567:0:7"
+            },
+            "scope": 3700,
+            "src": "316:503:7",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3678,
+              "nodeType": "Block",
+              "src": "924:138:7",
+              "statements": [
+                {
+                  "assignments": [
+                    3667
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3667,
+                      "name": "proposalId",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 3678,
+                      "src": "930:18:7",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 3666,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "930:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3673,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3670,
+                        "name": "tokenToWhitelist",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3661,
+                        "src": "990:16:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3671,
+                        "name": "details",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3663,
+                        "src": "1014:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 3668,
+                        "name": "daoCoop",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3609,
+                        "src": "951:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_DAOCoop_$2906",
+                          "typeString": "contract DAOCoop"
+                        }
+                      },
+                      "id": 3669,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "submitWhitelistProposal",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 830,
+                      "src": "951:31:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_string_memory_ptr_$returns$_t_uint256_$",
+                        "typeString": "function (address,string memory) external returns (uint256)"
+                      }
+                    },
+                    "id": 3672,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "951:76:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "930:97:7"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3675,
+                        "name": "proposalId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3667,
+                        "src": "1046:10:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 3674,
+                      "name": "Submit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3607,
+                      "src": "1039:6:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 3676,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1039:18:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3677,
+                  "nodeType": "EmitStatement",
+                  "src": "1034:23:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3679,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "submitWhitelistProposal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3664,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3661,
+                  "name": "tokenToWhitelist",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3679,
+                  "src": "861:24:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3660,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "861:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3663,
+                  "name": "details",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3679,
+                  "src": "891:21:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3662,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "891:6:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "855:61:7"
+            },
+            "returnParameters": {
+              "id": 3665,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "924:0:7"
+            },
+            "scope": 3700,
+            "src": "823:239:7",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3698,
+              "nodeType": "Block",
+              "src": "1163:134:7",
+              "statements": [
+                {
+                  "assignments": [
+                    3687
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3687,
+                      "name": "proposalId",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 3698,
+                      "src": "1169:18:7",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 3686,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1169:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3693,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3690,
+                        "name": "memberToKick",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3681,
+                        "src": "1229:12:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 3691,
+                        "name": "details",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3683,
+                        "src": "1249:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 3688,
+                        "name": "daoCoop",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3609,
+                        "src": "1190:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_DAOCoop_$2906",
+                          "typeString": "contract DAOCoop"
+                        }
+                      },
+                      "id": 3689,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "submitGuildKickProposal",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 903,
+                      "src": "1190:31:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_string_memory_ptr_$returns$_t_uint256_$",
+                        "typeString": "function (address,string memory) external returns (uint256)"
+                      }
+                    },
+                    "id": 3692,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1190:72:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1169:93:7"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 3695,
+                        "name": "proposalId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3687,
+                        "src": "1281:10:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 3694,
+                      "name": "Submit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3607,
+                      "src": "1274:6:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 3696,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1274:18:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3697,
+                  "nodeType": "EmitStatement",
+                  "src": "1269:23:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3699,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "submitGuildKickProposal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3684,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3681,
+                  "name": "memberToKick",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3699,
+                  "src": "1104:20:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3680,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1104:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3683,
+                  "name": "details",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3699,
+                  "src": "1130:21:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3682,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1130:6:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1098:57:7"
+            },
+            "returnParameters": {
+              "id": 3685,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1163:0:7"
+            },
+            "scope": 3700,
+            "src": "1066:231:7",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3701,
+        "src": "109:1190:7"
+      }
+    ],
+    "src": "59:1241:7"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/rogelio/Code/xdv/PanamaDAO/contracts/test-helpers/Submitter.sol",
+      "exportedSymbols": {
+        "Submitter": [
+          3700
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.5",
+            ".3"
+          ]
+        },
+        "id": 3602,
+        "name": "PragmaDirective",
+        "src": "59:22:7"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 2907,
+          "absolutePath": "/home/rogelio/Code/xdv/PanamaDAO/contracts/DAOCoop.sol",
+          "file": "../DAOCoop.sol",
+          "scope": 3701,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 3603,
+        "name": "ImportDirective",
+        "src": "83:24:7"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            3700
+          ],
+          "name": "Submitter",
+          "scope": 3701
+        },
+        "children": [
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "Submit"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "proposalId",
+                      "scope": 3607,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3604,
+                        "name": "ElementaryTypeName",
+                        "src": "146:7:7"
+                      }
+                    ],
+                    "id": 3605,
+                    "name": "VariableDeclaration",
+                    "src": "146:18:7"
+                  }
+                ],
+                "id": 3606,
+                "name": "ParameterList",
+                "src": "145:20:7"
+              }
+            ],
+            "id": 3607,
+            "name": "EventDefinition",
+            "src": "133:33:7"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "daoCoop",
+              "scope": 3700,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract DAOCoop",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "DAOCoop",
+                  "referencedDeclaration": 2906,
+                  "type": "contract DAOCoop"
+                },
+                "id": 3608,
+                "name": "UserDefinedTypeName",
+                "src": "170:7:7"
+              }
+            ],
+            "id": 3609,
+            "name": "VariableDeclaration",
+            "src": "170:22:7"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 3700,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "molochAddress",
+                      "scope": 3621,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 3610,
+                        "name": "ElementaryTypeName",
+                        "src": "239:7:7"
+                      }
+                    ],
+                    "id": 3611,
+                    "name": "VariableDeclaration",
+                    "src": "239:21:7"
+                  }
+                ],
+                "id": 3612,
+                "name": "ParameterList",
+                "src": "238:23:7"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 3613,
+                "name": "ParameterList",
+                "src": "269:0:7"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract DAOCoop"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3609,
+                              "type": "contract DAOCoop",
+                              "value": "daoCoop"
+                            },
+                            "id": 3614,
+                            "name": "Identifier",
+                            "src": "275:7:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "contract DAOCoop",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2906,
+                                  "type": "type(contract DAOCoop)",
+                                  "value": "DAOCoop"
+                                },
+                                "id": 3615,
+                                "name": "Identifier",
+                                "src": "285:7:7"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 3611,
+                                  "type": "address",
+                                  "value": "molochAddress"
+                                },
+                                "id": 3616,
+                                "name": "Identifier",
+                                "src": "293:13:7"
+                              }
+                            ],
+                            "id": 3617,
+                            "name": "FunctionCall",
+                            "src": "285:22:7"
+                          }
+                        ],
+                        "id": 3618,
+                        "name": "Assignment",
+                        "src": "275:32:7"
+                      }
+                    ],
+                    "id": 3619,
+                    "name": "ExpressionStatement",
+                    "src": "275:32:7"
+                  }
+                ],
+                "id": 3620,
+                "name": "Block",
+                "src": "269:43:7"
+              }
+            ],
+            "id": 3621,
+            "name": "FunctionDefinition",
+            "src": "227:85:7"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "submitProposal",
+              "scope": 3700,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "applicant",
+                      "scope": 3659,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 3622,
+                        "name": "ElementaryTypeName",
+                        "src": "345:7:7"
+                      }
+                    ],
+                    "id": 3623,
+                    "name": "VariableDeclaration",
+                    "src": "345:17:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "sharesRequested",
+                      "scope": 3659,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3624,
+                        "name": "ElementaryTypeName",
+                        "src": "368:7:7"
+                      }
+                    ],
+                    "id": 3625,
+                    "name": "VariableDeclaration",
+                    "src": "368:23:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "lootRequested",
+                      "scope": 3659,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3626,
+                        "name": "ElementaryTypeName",
+                        "src": "397:7:7"
+                      }
+                    ],
+                    "id": 3627,
+                    "name": "VariableDeclaration",
+                    "src": "397:21:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "tributeOffered",
+                      "scope": 3659,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3628,
+                        "name": "ElementaryTypeName",
+                        "src": "424:7:7"
+                      }
+                    ],
+                    "id": 3629,
+                    "name": "VariableDeclaration",
+                    "src": "424:22:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "tributeToken",
+                      "scope": 3659,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 3630,
+                        "name": "ElementaryTypeName",
+                        "src": "452:7:7"
+                      }
+                    ],
+                    "id": 3631,
+                    "name": "VariableDeclaration",
+                    "src": "452:20:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "paymentRequested",
+                      "scope": 3659,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3632,
+                        "name": "ElementaryTypeName",
+                        "src": "478:7:7"
+                      }
+                    ],
+                    "id": 3633,
+                    "name": "VariableDeclaration",
+                    "src": "478:24:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "paymentToken",
+                      "scope": 3659,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 3634,
+                        "name": "ElementaryTypeName",
+                        "src": "508:7:7"
+                      }
+                    ],
+                    "id": 3635,
+                    "name": "VariableDeclaration",
+                    "src": "508:20:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "details",
+                      "scope": 3659,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 3636,
+                        "name": "ElementaryTypeName",
+                        "src": "534:6:7"
+                      }
+                    ],
+                    "id": 3637,
+                    "name": "VariableDeclaration",
+                    "src": "534:21:7"
+                  }
+                ],
+                "id": 3638,
+                "name": "ParameterList",
+                "src": "339:220:7"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 3639,
+                "name": "ParameterList",
+                "src": "567:0:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        3641
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "proposalId",
+                          "scope": 3658,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint256",
+                              "type": "uint256"
+                            },
+                            "id": 3640,
+                            "name": "ElementaryTypeName",
+                            "src": "573:7:7"
+                          }
+                        ],
+                        "id": 3641,
+                        "name": "VariableDeclaration",
+                        "src": "573:18:7"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "submitProposal",
+                              "referencedDeclaration": 761,
+                              "type": "function (address,uint256,uint256,uint256,address,uint256,address,string memory) external returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 3609,
+                                  "type": "contract DAOCoop",
+                                  "value": "daoCoop"
+                                },
+                                "id": 3642,
+                                "name": "Identifier",
+                                "src": "594:7:7"
+                              }
+                            ],
+                            "id": 3643,
+                            "name": "MemberAccess",
+                            "src": "594:22:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3623,
+                              "type": "address",
+                              "value": "applicant"
+                            },
+                            "id": 3644,
+                            "name": "Identifier",
+                            "src": "624:9:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3625,
+                              "type": "uint256",
+                              "value": "sharesRequested"
+                            },
+                            "id": 3645,
+                            "name": "Identifier",
+                            "src": "641:15:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3627,
+                              "type": "uint256",
+                              "value": "lootRequested"
+                            },
+                            "id": 3646,
+                            "name": "Identifier",
+                            "src": "664:13:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3629,
+                              "type": "uint256",
+                              "value": "tributeOffered"
+                            },
+                            "id": 3647,
+                            "name": "Identifier",
+                            "src": "685:14:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3631,
+                              "type": "address",
+                              "value": "tributeToken"
+                            },
+                            "id": 3648,
+                            "name": "Identifier",
+                            "src": "707:12:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3633,
+                              "type": "uint256",
+                              "value": "paymentRequested"
+                            },
+                            "id": 3649,
+                            "name": "Identifier",
+                            "src": "727:16:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3635,
+                              "type": "address",
+                              "value": "paymentToken"
+                            },
+                            "id": 3650,
+                            "name": "Identifier",
+                            "src": "751:12:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3637,
+                              "type": "string memory",
+                              "value": "details"
+                            },
+                            "id": 3651,
+                            "name": "Identifier",
+                            "src": "771:7:7"
+                          }
+                        ],
+                        "id": 3652,
+                        "name": "FunctionCall",
+                        "src": "594:190:7"
+                      }
+                    ],
+                    "id": 3653,
+                    "name": "VariableDeclarationStatement",
+                    "src": "573:211:7"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3607,
+                              "type": "function (uint256)",
+                              "value": "Submit"
+                            },
+                            "id": 3654,
+                            "name": "Identifier",
+                            "src": "796:6:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3641,
+                              "type": "uint256",
+                              "value": "proposalId"
+                            },
+                            "id": 3655,
+                            "name": "Identifier",
+                            "src": "803:10:7"
+                          }
+                        ],
+                        "id": 3656,
+                        "name": "FunctionCall",
+                        "src": "796:18:7"
+                      }
+                    ],
+                    "id": 3657,
+                    "name": "EmitStatement",
+                    "src": "791:23:7"
+                  }
+                ],
+                "id": 3658,
+                "name": "Block",
+                "src": "567:252:7"
+              }
+            ],
+            "id": 3659,
+            "name": "FunctionDefinition",
+            "src": "316:503:7"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "submitWhitelistProposal",
+              "scope": 3700,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "tokenToWhitelist",
+                      "scope": 3679,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 3660,
+                        "name": "ElementaryTypeName",
+                        "src": "861:7:7"
+                      }
+                    ],
+                    "id": 3661,
+                    "name": "VariableDeclaration",
+                    "src": "861:24:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "details",
+                      "scope": 3679,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 3662,
+                        "name": "ElementaryTypeName",
+                        "src": "891:6:7"
+                      }
+                    ],
+                    "id": 3663,
+                    "name": "VariableDeclaration",
+                    "src": "891:21:7"
+                  }
+                ],
+                "id": 3664,
+                "name": "ParameterList",
+                "src": "855:61:7"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 3665,
+                "name": "ParameterList",
+                "src": "924:0:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        3667
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "proposalId",
+                          "scope": 3678,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint256",
+                              "type": "uint256"
+                            },
+                            "id": 3666,
+                            "name": "ElementaryTypeName",
+                            "src": "930:7:7"
+                          }
+                        ],
+                        "id": 3667,
+                        "name": "VariableDeclaration",
+                        "src": "930:18:7"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "submitWhitelistProposal",
+                              "referencedDeclaration": 830,
+                              "type": "function (address,string memory) external returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 3609,
+                                  "type": "contract DAOCoop",
+                                  "value": "daoCoop"
+                                },
+                                "id": 3668,
+                                "name": "Identifier",
+                                "src": "951:7:7"
+                              }
+                            ],
+                            "id": 3669,
+                            "name": "MemberAccess",
+                            "src": "951:31:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3661,
+                              "type": "address",
+                              "value": "tokenToWhitelist"
+                            },
+                            "id": 3670,
+                            "name": "Identifier",
+                            "src": "990:16:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3663,
+                              "type": "string memory",
+                              "value": "details"
+                            },
+                            "id": 3671,
+                            "name": "Identifier",
+                            "src": "1014:7:7"
+                          }
+                        ],
+                        "id": 3672,
+                        "name": "FunctionCall",
+                        "src": "951:76:7"
+                      }
+                    ],
+                    "id": 3673,
+                    "name": "VariableDeclarationStatement",
+                    "src": "930:97:7"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3607,
+                              "type": "function (uint256)",
+                              "value": "Submit"
+                            },
+                            "id": 3674,
+                            "name": "Identifier",
+                            "src": "1039:6:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3667,
+                              "type": "uint256",
+                              "value": "proposalId"
+                            },
+                            "id": 3675,
+                            "name": "Identifier",
+                            "src": "1046:10:7"
+                          }
+                        ],
+                        "id": 3676,
+                        "name": "FunctionCall",
+                        "src": "1039:18:7"
+                      }
+                    ],
+                    "id": 3677,
+                    "name": "EmitStatement",
+                    "src": "1034:23:7"
+                  }
+                ],
+                "id": 3678,
+                "name": "Block",
+                "src": "924:138:7"
+              }
+            ],
+            "id": 3679,
+            "name": "FunctionDefinition",
+            "src": "823:239:7"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "submitGuildKickProposal",
+              "scope": 3700,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "memberToKick",
+                      "scope": 3699,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 3680,
+                        "name": "ElementaryTypeName",
+                        "src": "1104:7:7"
+                      }
+                    ],
+                    "id": 3681,
+                    "name": "VariableDeclaration",
+                    "src": "1104:20:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "details",
+                      "scope": 3699,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 3682,
+                        "name": "ElementaryTypeName",
+                        "src": "1130:6:7"
+                      }
+                    ],
+                    "id": 3683,
+                    "name": "VariableDeclaration",
+                    "src": "1130:21:7"
+                  }
+                ],
+                "id": 3684,
+                "name": "ParameterList",
+                "src": "1098:57:7"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 3685,
+                "name": "ParameterList",
+                "src": "1163:0:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        3687
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "proposalId",
+                          "scope": 3698,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint256",
+                              "type": "uint256"
+                            },
+                            "id": 3686,
+                            "name": "ElementaryTypeName",
+                            "src": "1169:7:7"
+                          }
+                        ],
+                        "id": 3687,
+                        "name": "VariableDeclaration",
+                        "src": "1169:18:7"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "submitGuildKickProposal",
+                              "referencedDeclaration": 903,
+                              "type": "function (address,string memory) external returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 3609,
+                                  "type": "contract DAOCoop",
+                                  "value": "daoCoop"
+                                },
+                                "id": 3688,
+                                "name": "Identifier",
+                                "src": "1190:7:7"
+                              }
+                            ],
+                            "id": 3689,
+                            "name": "MemberAccess",
+                            "src": "1190:31:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3681,
+                              "type": "address",
+                              "value": "memberToKick"
+                            },
+                            "id": 3690,
+                            "name": "Identifier",
+                            "src": "1229:12:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3683,
+                              "type": "string memory",
+                              "value": "details"
+                            },
+                            "id": 3691,
+                            "name": "Identifier",
+                            "src": "1249:7:7"
+                          }
+                        ],
+                        "id": 3692,
+                        "name": "FunctionCall",
+                        "src": "1190:72:7"
+                      }
+                    ],
+                    "id": 3693,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1169:93:7"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3607,
+                              "type": "function (uint256)",
+                              "value": "Submit"
+                            },
+                            "id": 3694,
+                            "name": "Identifier",
+                            "src": "1274:6:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 3687,
+                              "type": "uint256",
+                              "value": "proposalId"
+                            },
+                            "id": 3695,
+                            "name": "Identifier",
+                            "src": "1281:10:7"
+                          }
+                        ],
+                        "id": 3696,
+                        "name": "FunctionCall",
+                        "src": "1274:18:7"
+                      }
+                    ],
+                    "id": 3697,
+                    "name": "EmitStatement",
+                    "src": "1269:23:7"
+                  }
+                ],
+                "id": 3698,
+                "name": "Block",
+                "src": "1163:134:7"
+              }
+            ],
+            "id": 3699,
+            "name": "FunctionDefinition",
+            "src": "1066:231:7"
+          }
+        ],
+        "id": 3700,
+        "name": "ContractDefinition",
+        "src": "109:1190:7"
+      }
+    ],
+    "id": 3701,
+    "name": "SourceUnit",
+    "src": "59:1241:7"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.3+commit.10d17f24.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-04-25T16:20:40.239Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

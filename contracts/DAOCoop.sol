@@ -4,12 +4,16 @@ import "./SafeMath.sol";
 import "./IERC20.sol";
 import "./ReentrancyGuard.sol";
 
-contract Moloch is ReentrancyGuard {
+contract DAOCoop is ReentrancyGuard {
     using SafeMath for uint256;
 
     /***************
     GLOBAL CONSTANTS
     ***************/
+    bytes public actaUri;
+    bytes public bylawUri;
+    bool public hasKyb;
+    bool public hasIpacoopCertify;
     uint256 public periodDuration; // default = 17280 = 4.8 hours in seconds (5 periods per day)
     uint256 public votingPeriodLength; // default = 35 periods (7 days)
     uint256 public gracePeriodLength; // default = 35 periods (7 days)
@@ -125,11 +129,10 @@ contract Moloch is ReentrancyGuard {
     constructor(
         address _president,
         address[] memory _approvedTokens,
-        bytes memory _acta, //Acta
-        bytes memory _bylaw, //Estatuto
-        bytes memory _whitepaper, 
-        bytes memory _hasKyb, //Certificacion de entidad financiera
-        bool _hasIpacoopCertify, //Estudio de viabilidad economica social
+        bytes memory _actaUri, // Acta
+        bytes memory _bylawUri, // Estatuto
+        bool _hasKyb, // Certificacion de entidad financiera
+        bool _hasIpacoopCertify, // Estudio de viabilidad economica social
         uint256 _periodDuration,
         uint256 _votingPeriodLength,
         uint256 _gracePeriodLength,
@@ -137,7 +140,9 @@ contract Moloch is ReentrancyGuard {
         uint256 _dilutionBound,
         uint256 _processingReward
     ) public {
-        require(_summoner != address(0), "summoner cannot be 0");
+        require(_actaUri.length > 0, "Must have an PanamaDAO Act URI");
+        require(_bylawUri.length > 0, "Must have an PanamaDAO Bylaw URI");
+        require(_president != address(0), "summoner cannot be 0");
         require(_periodDuration > 0, "_periodDuration cannot be 0");
         require(_votingPeriodLength > 0, "_votingPeriodLength cannot be 0");
         require(_votingPeriodLength <= MAX_VOTING_PERIOD_LENGTH, "_votingPeriodLength exceeds limit");
@@ -150,7 +155,7 @@ contract Moloch is ReentrancyGuard {
         
         depositToken = _approvedTokens[0];
         // NOTE: move event up here, avoid stack too deep if too many approved tokens
-        emit SummonComplete(_summoner, _approvedTokens, now, _periodDuration, _votingPeriodLength, _gracePeriodLength, _proposalDeposit, _dilutionBound, _processingReward);
+        emit SummonComplete(_president, _approvedTokens, now, _periodDuration, _votingPeriodLength, _gracePeriodLength, _proposalDeposit, _dilutionBound, _processingReward);
 
 
         for (uint256 i = 0; i < _approvedTokens.length; i++) {
@@ -167,10 +172,16 @@ contract Moloch is ReentrancyGuard {
         dilutionBound = _dilutionBound;
         processingReward = _processingReward;
 
+        // documents
+        actaUri = _actaUri;
+        bylawUri = _bylawUri;
+        hasKyb = _hasKyb;
+        hasIpacoopCertify = _hasIpacoopCertify;
+
         summoningTime = now;
 
-        members[_summoner] = Member(_summoner, 1, 0, true, 0, 0);
-        memberAddressByDelegateKey[_summoner] = _summoner;
+        members[_president] = Member(_president, 1, 0, true, 0, 0);
+        memberAddressByDelegateKey[_president] = _president;
         totalShares = 1;
        
     }

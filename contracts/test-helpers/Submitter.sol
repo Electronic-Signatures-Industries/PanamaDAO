@@ -1,17 +1,17 @@
-// helper for testing moloch.submitProposal return value
+// helper for testing daoCoop.submitProposal return value
 
 pragma solidity 0.5.3;
 
-import "../Moloch.sol";
+import "../DAOCoop.sol";
 
 contract Submitter {
 
   event Submit(uint256 proposalId);
 
-  Moloch public moloch; // moloch contract reference
+  DAOCoop public daoCoop; // daoCoop contract reference
 
   constructor(address molochAddress) public {
-    moloch = Moloch(molochAddress);
+    daoCoop = DAOCoop(molochAddress);
   }
 
   function submitProposal(
@@ -24,7 +24,7 @@ contract Submitter {
     address paymentToken,
     string memory details
   ) public {
-    uint256 proposalId = moloch.submitProposal(
+    uint256 proposalId = daoCoop.submitProposal(
       applicant,
       sharesRequested,
       lootRequested,
@@ -42,7 +42,7 @@ contract Submitter {
     address tokenToWhitelist,
     string memory details
   ) public {
-    uint256 proposalId = moloch.submitWhitelistProposal(
+    uint256 proposalId = daoCoop.submitWhitelistProposal(
       tokenToWhitelist,
       details
     );
@@ -54,7 +54,7 @@ contract Submitter {
     address memberToKick,
     string memory details
   ) public {
-    uint256 proposalId = moloch.submitGuildKickProposal(
+    uint256 proposalId = daoCoop.submitGuildKickProposal(
       memberToKick,
       details
     );
