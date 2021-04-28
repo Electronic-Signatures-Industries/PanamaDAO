@@ -10,7 +10,3 @@ Ley 17 capitulo 2 Constitución
  como una constitución, cualquier reforma (governance), serán propuestas por un número no menor al 10% de los asociados,
   regimen economico por hacer
   resolucion y liquidacion
-
-  - sacar la logica de process proposal, separacion de miembros, y un metodo que se llame enroll member
-  enroll member tiene que ser solamente el presidente o el secretario pueden agregar miembros al DAO
-  - agregar roles del DAO, presidente, secretario, directores, asociados,

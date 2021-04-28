@@ -1,3 +1,4 @@
+const alchemyapiurl = "https://eth-rinkeby.alchemyapi.io/v2/RTRxbX-_48DRfp_Rk44tZHS_c3xkKmgk"
 const hardhat = require("hardhat/config");
 const { usePlugin } = hardhat;
 
@@ -41,7 +42,7 @@ module.exports = {
     }
   },
   solidity: {
-    version: "0.5.3",
+    version: "0.8.0",
     settings: {
       optimizer: {
         enabled: true,

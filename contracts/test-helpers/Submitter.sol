@@ -1,6 +1,6 @@
 // helper for testing daoCoop.submitProposal return value
 
-pragma solidity 0.5.3;
+pragma solidity 0.8.0;
 
 import "../DAOCoop.sol";
 

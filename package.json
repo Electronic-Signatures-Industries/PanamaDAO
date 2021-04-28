@@ -40,5 +40,8 @@
   "bugs": {
     "url": "https://github.com/MolochVentures/moloch/issues"
   },
-  "homepage": "https://github.com/MolochVentures/moloch#readme"
+  "homepage": "https://github.com/MolochVentures/moloch#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.0.0"
+  }
 }

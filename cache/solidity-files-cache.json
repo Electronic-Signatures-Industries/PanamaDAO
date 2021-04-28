@@ -1,0 +1,290 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "D:\\Code\\PanamaDAO\\contracts\\DAOCoop.sol": {
+      "lastModificationDate": 1619478664360,
+      "contentHash": "23e6316b6253aefc551239f055234c34",
+      "sourceName": "contracts/DAOCoop.sol",
+      "solcConfig": {
+        "version": "0.5.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./SafeMath.sol",
+        "./IERC20.sol",
+        "./ReentrancyGuard.sol"
+      ],
+      "versionPragmas": [
+        "0.5.3"
+      ],
+      "artifacts": [
+        "DAOCoop"
+      ]
+    },
+    "D:\\Code\\PanamaDAO\\contracts\\SafeMath.sol": {
+      "lastModificationDate": 1619268434225,
+      "contentHash": "d6276600719f27bf6c3a13b881e55140",
+      "sourceName": "contracts/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.5.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.5.2"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "D:\\Code\\PanamaDAO\\contracts\\IERC20.sol": {
+      "lastModificationDate": 1619268434223,
+      "contentHash": "cea5465411855f5cfc362a7878787e5a",
+      "sourceName": "contracts/IERC20.sol",
+      "solcConfig": {
+        "version": "0.5.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.5.2"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "D:\\Code\\PanamaDAO\\contracts\\ReentrancyGuard.sol": {
+      "lastModificationDate": 1619268434224,
+      "contentHash": "a79dc77984b1b78da55726686bea52bd",
+      "sourceName": "contracts/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.5.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.5.0"
+      ],
+      "artifacts": [
+        "ReentrancyGuard"
+      ]
+    },
+    "D:\\Code\\PanamaDAO\\contracts\\test-helpers\\Submitter.sol": {
+      "lastModificationDate": 1619478664361,
+      "contentHash": "5bf201105ce805c4701d37ad4878aa34",
+      "sourceName": "contracts/test-helpers/Submitter.sol",
+      "solcConfig": {
+        "version": "0.5.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../DAOCoop.sol"
+      ],
+      "versionPragmas": [
+        "0.5.3"
+      ],
+      "artifacts": [
+        "Submitter"
+      ]
+    },
+    "D:\\Code\\PanamaDAO\\contracts\\MolochSummoner.sol": {
+      "lastModificationDate": 1619478664361,
+      "contentHash": "9a5c43b4b0827f34746698691dc69e64",
+      "sourceName": "contracts/MolochSummoner.sol",
+      "solcConfig": {
+        "version": "0.5.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./DAOCoop.sol"
+      ],
+      "versionPragmas": [
+        "0.5.3"
+      ],
+      "artifacts": [
+        "DAOCoopSummoner"
+      ]
+    },
+    "D:\\Code\\PanamaDAO\\contracts\\ERC20.sol": {
+      "lastModificationDate": 1619268434223,
+      "contentHash": "165eb5374e1e0b26f6ddea1c39590687",
+      "sourceName": "contracts/ERC20.sol",
+      "solcConfig": {
+        "version": "0.5.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol",
+        "./SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.5.2"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "D:\\Code\\PanamaDAO\\contracts\\Token.sol": {
+      "lastModificationDate": 1619268434225,
+      "contentHash": "b535a1330aa9fa169750936dba101125",
+      "sourceName": "contracts/Token.sol",
+      "solcConfig": {
+        "version": "0.5.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.5.2"
+      ],
+      "artifacts": [
+        "Token"
+      ]
+    }
+  }
+}

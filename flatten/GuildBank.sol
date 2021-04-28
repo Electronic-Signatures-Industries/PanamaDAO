@@ -1,4 +1,4 @@
-pragma solidity 0.5.3;
+pragma solidity 0.8.0;
 
 import "./Ownable.sol";
 import "./IERC20.sol";
@@ -16,7 +16,7 @@ contract GuildBank is Ownable {
     }
 
     function withdraw(address receiver, uint256 shares, uint256 totalShares) public onlyOwner returns (bool) {
-        uint256 amount = approvedToken.balanceOf(address(this)).mul(shares).div(totalShares);
+        uint256 amount = approvedToken.balanceOf((address(this)*shares)/totalShares);
         emit Withdrawal(receiver, amount);
         return approvedToken.transfer(receiver, amount);
     }

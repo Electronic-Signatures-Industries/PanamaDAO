@@ -1,8 +1,10 @@
-pragma solidity 0.5.3;
+pragma solidity ^0.8.0;
 
-import "./SafeMath.sol";
-import "./IERC20.sol";
-import "./ReentrancyGuard.sol";
+//import "./IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+//import "./ReentrancyGuard.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract DAOCoop is ReentrancyGuard {
     using SafeMath for uint256;
@@ -199,7 +201,7 @@ contract DAOCoop is ReentrancyGuard {
         address paymentToken,
         string memory details
     ) public nonReentrant returns (uint256 proposalId) {
-        require(sharesRequested.add(lootRequested) <= MAX_NUMBER_OF_SHARES_AND_LOOT, "too many shares requested");
+        require((sharesRequested+lootRequested) <= MAX_NUMBER_OF_SHARES_AND_LOOT, "too many shares requested");
         require(tokenWhitelist[tributeToken], "tributeToken is not whitelisted");
         require(tokenWhitelist[paymentToken], "payment is not whitelisted");
         require(applicant != address(0), "applicant cannot be 0");
@@ -313,8 +315,8 @@ contract DAOCoop is ReentrancyGuard {
         // compute startingPeriod for proposal
         uint256 startingPeriod = max(
             getCurrentPeriod(),
-            proposalQueue.length == 0 ? 0 : proposals[proposalQueue[proposalQueue.length.sub(1)]].startingPeriod
-        ).add(1);
+            proposalQueue.length == 0 ? 0 : proposals[proposalQueue[proposalQueue.length-1]].startingPeriod
+        )+1;
 
         proposal.startingPeriod = startingPeriod;
 
@@ -326,7 +328,7 @@ contract DAOCoop is ReentrancyGuard {
         // append proposal to the queue
         proposalQueue.push(proposalId);
         
-        emit SponsorProposal(msg.sender, memberAddress, proposalId, proposalQueue.length.sub(1), startingPeriod);
+        emit SponsorProposal(msg.sender, memberAddress, proposalId, proposalQueue.length-1, startingPeriod);
     }
 
     // NOTE: In MolochV2 proposalIndex !== proposalId
@@ -348,7 +350,7 @@ contract DAOCoop is ReentrancyGuard {
         proposal.votesByMember[memberAddress] = vote;
 
         if (vote == Vote.Yes) {
-            proposal.yesVotes = proposal.yesVotes.add(member.shares);
+            proposal.yesVotes = proposal.yesVotes+member.shares;
 
             // set highest index (latest) yes vote - must be processed for member to ragequit
             if (proposalIndex > member.highestIndexYesVote) {
@@ -356,12 +358,12 @@ contract DAOCoop is ReentrancyGuard {
             }
 
             // set maximum of total shares encountered at a yes vote - used to bound dilution for yes voters
-            if (totalShares.add(totalLoot) > proposal.maxTotalSharesAndLootAtYesVote) {
-                proposal.maxTotalSharesAndLootAtYesVote = totalShares.add(totalLoot);
+            if ((totalShares+totalLoot) > proposal.maxTotalSharesAndLootAtYesVote) {
+                proposal.maxTotalSharesAndLootAtYesVote = totalShares+totalLoot;
             }
 
         } else if (vote == Vote.No) {
-            proposal.noVotes = proposal.noVotes.add(member.shares);
+            proposal.noVotes = proposal.noVotes+member.shares;
         }
      
         // NOTE: subgraph indexes by proposalId not proposalIndex since proposalIndex isn't set untill it's been sponsored but proposal is created on submission
@@ -381,7 +383,7 @@ contract DAOCoop is ReentrancyGuard {
         bool didPass = _didPass(proposalIndex);
 
         // Make the proposal fail if the new total number of shares and loot exceeds the limit
-        if (totalShares.add(totalLoot).add(proposal.sharesRequested).add(proposal.lootRequested) > MAX_NUMBER_OF_SHARES_AND_LOOT) {
+        if ((totalShares+totalLoot+proposal.sharesRequested+proposal.lootRequested) > MAX_NUMBER_OF_SHARES_AND_LOOT) {
             didPass = false;
         }
 
@@ -401,8 +403,8 @@ contract DAOCoop is ReentrancyGuard {
 
             // if the applicant is already a member, add to their existing shares & loot
             if (members[proposal.applicant].exists) {
-                members[proposal.applicant].shares = members[proposal.applicant].shares.add(proposal.sharesRequested);
-                members[proposal.applicant].loot = members[proposal.applicant].loot.add(proposal.lootRequested);
+                members[proposal.applicant].shares = members[proposal.applicant].shares+proposal.sharesRequested;
+                members[proposal.applicant].loot = members[proposal.applicant].loot+proposal.lootRequested;
 
             // the applicant is a new member, create a new record for them
             } else {
@@ -419,8 +421,8 @@ contract DAOCoop is ReentrancyGuard {
             }
 
             // mint new shares & loot
-            totalShares = totalShares.add(proposal.sharesRequested);
-            totalLoot = totalLoot.add(proposal.lootRequested);
+            totalShares = totalShares+proposal.sharesRequested;
+            totalLoot = totalLoot+proposal.lootRequested;
 
             // if the proposal tribute is the first tokens of its kind to make it into the guild bank, increment total guild bank tokens
             if (userTokenBalances[GUILD][proposal.tributeToken] == 0 && proposal.tributeOffered > 0) {
@@ -494,9 +496,9 @@ contract DAOCoop is ReentrancyGuard {
             member.jailed = proposalIndex;
 
             // transfer shares to loot
-            member.loot = member.loot.add(member.shares);
-            totalShares = totalShares.sub(member.shares);
-            totalLoot = totalLoot.add(member.shares);
+            member.loot = member.loot+member.shares;
+            totalShares = totalShares-member.shares;
+            totalLoot = totalLoot+member.shares;
             member.shares = 0; // revoke all shares
         }
 
@@ -513,7 +515,7 @@ contract DAOCoop is ReentrancyGuard {
         didPass = proposal.yesVotes > proposal.noVotes;
 
         // Make the proposal fail if the dilutionBound is exceeded
-        if ((totalShares.add(totalLoot)).mul(dilutionBound) < proposal.maxTotalSharesAndLootAtYesVote) {
+        if (totalShares+totalLoot*dilutionBound < proposal.maxTotalSharesAndLootAtYesVote) {
             didPass = false;
         }
 
@@ -531,14 +533,14 @@ contract DAOCoop is ReentrancyGuard {
         require(proposalIndex < proposalQueue.length, "proposal does not exist");
         Proposal memory proposal = proposals[proposalQueue[proposalIndex]];
 
-        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "proposal is not ready to be processed");
+        require(getCurrentPeriod() >= proposal.startingPeriod+votingPeriodLength+gracePeriodLength, "proposal is not ready to be processed");
         require(proposal.flags[1] == false, "proposal has already been processed");
-        require(proposalIndex == 0 || proposals[proposalQueue[proposalIndex.sub(1)]].flags[1], "previous proposal must be processed");
+        require(proposalIndex == 0 || proposals[proposalQueue[proposalIndex-1]].flags[1], "previous proposal must be processed");
     }
 
     function _returnDeposit(address sponsor) internal {
         unsafeInternalTransfer(ESCROW, msg.sender, depositToken, processingReward);
-        unsafeInternalTransfer(ESCROW, sponsor, depositToken, proposalDeposit.sub(processingReward));
+        unsafeInternalTransfer(ESCROW, sponsor, depositToken, proposalDeposit-processingReward);
     }
 
     function ragequit(uint256 sharesToBurn, uint256 lootToBurn) public nonReentrant onlyMember {
@@ -546,7 +548,7 @@ contract DAOCoop is ReentrancyGuard {
     }
 
     function _ragequit(address memberAddress, uint256 sharesToBurn, uint256 lootToBurn) internal {
-        uint256 initialTotalSharesAndLoot = totalShares.add(totalLoot);
+        uint256 initialTotalSharesAndLoot = totalShares+totalLoot;
 
         Member storage member = members[memberAddress];
 
@@ -555,13 +557,13 @@ contract DAOCoop is ReentrancyGuard {
 
         require(canRagequit(member.highestIndexYesVote), "cannot ragequit until highest index proposal member voted YES on is processed");
 
-        uint256 sharesAndLootToBurn = sharesToBurn.add(lootToBurn);
+        uint256 sharesAndLootToBurn = sharesToBurn+lootToBurn;
 
         // burn shares and loot
-        member.shares = member.shares.sub(sharesToBurn);
-        member.loot = member.loot.sub(lootToBurn);
-        totalShares = totalShares.sub(sharesToBurn);
-        totalLoot = totalLoot.sub(lootToBurn);
+        member.shares = member.shares-sharesToBurn;
+        member.loot = member.loot-lootToBurn;
+        totalShares = totalShares-sharesToBurn;
+        totalLoot = totalLoot-lootToBurn;
 
         for (uint256 i = 0; i < approvedTokens.length; i++) {
             uint256 amountToRagequit = fairShare(userTokenBalances[GUILD][approvedTokens[i]], sharesAndLootToBurn, initialTotalSharesAndLoot);
@@ -611,7 +613,7 @@ contract DAOCoop is ReentrancyGuard {
     }
 
     function collectTokens(address token) public onlyDelegate nonReentrant {
-        uint256 amountToCollect = IERC20(token).balanceOf(address(this)).sub(userTokenBalances[TOTAL][token]);
+        uint256 amountToCollect = IERC20(token).balanceOf(address(this))-userTokenBalances[TOTAL][token];
         // only collect if 1) there are tokens to collect 2) token is whitelisted 3) token has non-zero balance
         require(amountToCollect > 0, 'no tokens to collect');
         require(tokenWhitelist[token], 'token to collect must be whitelisted');
@@ -658,7 +660,7 @@ contract DAOCoop is ReentrancyGuard {
     }
 
     function hasVotingPeriodExpired(uint256 startingPeriod) public view returns (bool) {
-        return getCurrentPeriod() >= startingPeriod.add(votingPeriodLength);
+        return getCurrentPeriod() >= startingPeriod+votingPeriodLength;
     }
 
     /***************
@@ -670,7 +672,7 @@ contract DAOCoop is ReentrancyGuard {
     }
 
     function getCurrentPeriod() public view returns (uint256) {
-        return now.sub(summoningTime).div(periodDuration);
+        return (now-summoningTime)/periodDuration;
     }
 
     function getProposalQueueLength() public view returns (uint256) {

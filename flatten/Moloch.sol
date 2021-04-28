@@ -1,7 +1,6 @@
-
 // File: contracts/oz/SafeMath.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.8.0;
 
 library SafeMath {
     function mul(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -45,7 +44,7 @@ library SafeMath {
 
 // File: contracts/oz/IERC20.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.8.0;
 
 interface IERC20 {
     function transfer(address to, uint256 value) external returns (bool);
@@ -67,7 +66,7 @@ interface IERC20 {
 
 // File: contracts/IGuildBank.sol
 
-pragma solidity 0.5.3;
+pragma solidity ^0.8.0;
 
 
 interface IGuildBank  {
@@ -78,7 +77,7 @@ interface IGuildBank  {
 
 // File: contracts/Moloch.sol
 
-pragma solidity 0.5.3;
+pragma solidity ^0.8.0;
 
 
 
@@ -214,7 +213,7 @@ contract Moloch {
         dilutionBound = _dilutionBound;
         processingReward = _processingReward;
 
-        summoningTime = now;
+        summoningTime = block.timestamp;
 
         members[summoner] = Member(summoner, 1, true, 0);
         memberAddressByDelegateKey[summoner] = summoner;
@@ -336,14 +335,14 @@ contract Moloch {
             require(!proposedToKick[proposal.applicant]);
             proposedToKick[proposal.applicant] = true;
         } else {
-            require(totalShares.add(totalSharesRequested).add(proposal.sharesRequested) <= MAX_NUMBER_OF_SHARES, "Moloch::submitProposal - too many shares requested");
-            totalSharesRequested = totalSharesRequested.add(proposal.sharesRequested);
+            require(totalShares+totalSharesRequested+proposal.sharesRequested <= MAX_NUMBER_OF_SHARES, "Moloch::submitProposal - too many shares requested");
+            totalSharesRequested = totalSharesRequested+proposal.sharesRequested;
         }
 
         uint256 startingPeriod = max(
             getCurrentPeriod(),
-            proposalQueue.length == 0 ? 0 : proposals[proposalQueue[proposalQueue.length.sub(1)]].startingPeriod
-        ).add(1);
+            proposalQueue.length == 0 ? 0 : proposals[proposalQueue[proposalQueue.length-1]].startingPeriod
+        )+1;
 
         proposal.startingPeriod = startingPeriod;
 
@@ -373,7 +372,7 @@ contract Moloch {
         proposal.votesByMember[memberAddress] = vote;
 
         if (vote == Vote.Yes) {
-            proposal.yesVotes = proposal.yesVotes.add(member.shares);
+            proposal.yesVotes = proposal.yesVotes+member.shares;
 
             if (proposalIndex > member.highestIndexYesVote) {
                 member.highestIndexYesVote = proposalIndex;
@@ -384,7 +383,7 @@ contract Moloch {
             }
 
         } else if (vote == Vote.No) {
-            proposal.noVotes = proposal.noVotes.add(member.shares);
+            proposal.noVotes = proposal.noVotes+member.shares;
         }
 
         emit SubmitVote(proposalIndex, msg.sender, memberAddress, uintVote);
@@ -394,22 +393,22 @@ contract Moloch {
         require(proposalIndex < proposalQueue.length, "Moloch::processProposal - proposal does not exist");
         Proposal storage proposal = proposals[proposalQueue[proposalIndex]];
 
-        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
+        require(getCurrentPeriod() >= proposal.startingPeriod+votingPeriodLength+gracePeriodLength, "Moloch::processProposal - proposal is not ready to be processed");
         require(proposal.flags[1] == false, "Moloch::processProposal - proposal has already been processed");
-        require(proposalIndex == 0 || proposals[proposalQueue[proposalIndex.sub(1)]].flags[1], "Moloch::processProposal - previous proposal must be processed");
+        require(proposalIndex == 0 || proposals[proposalQueue[proposalIndex-1]].flags[1], "Moloch::processProposal - previous proposal must be processed");
 
         proposal.flags[1] = true;
-        totalSharesRequested = totalSharesRequested.sub(proposal.sharesRequested);
+        totalSharesRequested = totalSharesRequested-proposal.sharesRequested;
 
         bool didPass = proposal.yesVotes > proposal.noVotes;
 
         bool emergencyProcessing = false;
-        if (getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength).add(emergencyExitWait)) {
+        if (getCurrentPeriod() >= proposal.startingPeriod+votingPeriodLength+gracePeriodLength+emergencyExitWait) {
             emergencyProcessing = true;
             didPass = false;
         }
 
-        if (totalShares.mul(dilutionBound) < proposal.maxTotalSharesAtYesVote) {
+        if ((totalShares*dilutionBound) < proposal.maxTotalSharesAtYesVote) {
             didPass = false;
         }
 
@@ -430,7 +429,7 @@ contract Moloch {
 
             } else {
                 if (members[proposal.applicant].exists) {
-                    members[proposal.applicant].shares = members[proposal.applicant].shares.add(proposal.sharesRequested);
+                    members[proposal.applicant].shares = members[proposal.applicant].shares+proposal.sharesRequested;
 
                 } else {
                     if (members[memberAddressByDelegateKey[proposal.applicant]].exists) {
@@ -443,7 +442,7 @@ contract Moloch {
                     memberAddressByDelegateKey[proposal.applicant] = proposal.applicant;
                 }
 
-                totalShares = totalShares.add(proposal.sharesRequested);
+                totalShares = totalShares+proposal.sharesRequested;
 
                 require(
                     proposal.tributeToken.transfer(address(guildBank), proposal.tributeOffered),
@@ -480,7 +479,7 @@ contract Moloch {
         );
 
         require(
-            depositToken.transfer(proposal.sponsor, proposalDeposit.sub(processingReward)),
+            depositToken.transfer(proposal.sponsor, proposalDeposit-processingReward),
             "Moloch::processProposal - failed to return proposal deposit to sponsor"
         );
     }
@@ -510,8 +509,8 @@ contract Moloch {
 
         require(canRagequit(member.highestIndexYesVote), "Moloch::ragequit - cant ragequit until highest index proposal member voted YES on is processed");
 
-        member.shares = member.shares.sub(sharesToBurn);
-        totalShares = totalShares.sub(sharesToBurn);
+        member.shares = member.shares-sharesToBurn;
+        totalShares = totalShares-sharesToBurn;
 
         require(
             guildBank.withdraw(msg.sender, sharesToBurn, initialTotalShares, approvedTokens),
@@ -557,7 +556,7 @@ contract Moloch {
     }
 
     function getCurrentPeriod() public view returns (uint256) {
-        return now.sub(summoningTime).div(periodDuration);
+        return (now-summoningTime)/periodDuration;
     }
 
     function getProposalQueueLength() public view returns (uint256) {
@@ -570,7 +569,7 @@ contract Moloch {
     }
 
     function hasVotingPeriodExpired(uint256 startingPeriod) public view returns (bool) {
-        return getCurrentPeriod() >= startingPeriod.add(votingPeriodLength);
+        return getCurrentPeriod() >= startingPeriod+votingPeriodLength;
     }
 
     function getMemberProposalVote(address memberAddress, uint256 proposalIndex) public view returns (Vote) {
